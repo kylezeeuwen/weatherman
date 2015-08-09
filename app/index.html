@@ -21,7 +21,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <nav-bar></nav-bar>
+
     <div class="container-fluid no-padding" ui-view></div>
 
     <!-- build:js scripts/vendor.js -->
@@ -40,17 +41,30 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/app.js"></script>
 
+    <!-- api -->
+    <script src="scripts/api/weatherApi.js"></script>
+    <!-- api -->
+
+    <!-- config -->
+    <script src="scripts/conf/config.js"></script>
+    <!-- config -->
+
     <!-- controllers -->
+    <script src="scripts/controller/cityCtrl.js"></script>
+    <script src="scripts/controller/currentCtrl.js"></script>
     <!-- controllers -->
 
     <!-- directives -->
+    <script src="scripts/directives/navBar.js"></script>
     <!-- directives -->
 
     <!-- models -->
     <!-- models -->
 
-    <!-- models -->
-    <!-- models -->
+    <!-- services -->
+    <script src="scripts/services/currentLocation.js"></script>
+    <!-- services -->
+
 
     <!-- endbuild -->
 </body>

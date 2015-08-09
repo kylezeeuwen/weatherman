@@ -5,12 +5,29 @@ angular.module('weatherman', [
   'ui.router'
 ]).config ($urlRouterProvider, $stateProvider) ->
 
-  $urlRouterProvider.when '', '/intro'
+  $urlRouterProvider.when '', 'current_location'
 
-  $urlRouterProvider.otherwise '/intro'
+  $urlRouterProvider.otherwise 'current_location'
 
-  $stateProvider.state 'intro',
-    url: '/intro'
-    templateUrl: 'views/intro.html'
+  $stateProvider.state 'current_location',
+    url: '/current_location'
+    templateUrl: 'views/weather_summary.html'
+    resolve:
+      currentWeather: ['$stateParams', 'WeatherApi', 'CurrentLocation', ($stateParams, WeatherApi, CurrentLocation) ->
+        CurrentLocation.get().then (coords) ->
+          WeatherApi.current_by_coords(lat: coords.lat, lon: coords.lon).$promise
+      ]
+    controller: 'CurrentCtrl'
+
+  $stateProvider.state 'city_name',
+    url: '/city/:cityName'
+    templateUrl: 'views/weather_summary.html'
+    resolve:
+      currentWeather: ['$stateParams', 'WeatherApi', 'CurrentLocation', ($stateParams, WeatherApi, CurrentLocation) ->
+        CurrentLocation.get().then (coords) ->
+          WeatherApi.current_by_cityname(q: $stateParams.cityName).$promise
+      ]
+    controller: 'CityCtrl'
+
 
   return
