@@ -17,6 +17,10 @@ angular.module('weatherman', [
         CurrentLocation.get().then (coords) ->
           WeatherApi.current_by_coords(lat: coords.lat, lon: coords.lon).$promise
       ]
+      forecastWeather: ['WeatherApi', 'CurrentLocation', (WeatherApi, CurrentLocation) ->
+        CurrentLocation.get().then (coords) ->
+          WeatherApi.forecast_by_coords(lat: coords.lat, lon: coords.lon).$promise
+      ]
     controller: 'WeatherSummaryController'
 
   $stateProvider.state 'city_name',
@@ -25,6 +29,9 @@ angular.module('weatherman', [
     resolve:
       currentWeather: ['WeatherApi', '$stateParams', (WeatherApi, $stateParams) ->
         WeatherApi.current_by_cityname(q: $stateParams.cityName).$promise
+      ]
+      forecastWeather: ['WeatherApi', '$stateParams', (WeatherApi, $stateParams) ->
+        WeatherApi.forecast_by_cityname(q: $stateParams.cityName).$promise
       ]
     controller: 'WeatherSummaryController'
 

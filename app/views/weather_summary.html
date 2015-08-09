@@ -1,2 +1,10 @@
+<h2>Name: {{name}}</h2>
 <h2>Summary: {{summary}}</h2>
 <h2>Temp: {{celcius}}</h2>
+<img src="http://openweathermap.org/img/w/{{icon}}.png"></img>
+
+<div ng-repeat="datapoint in forecast">
+  <div>DT: {{datapoint.dt}}</div>
+  <div>Temp: {{datapoint.main.temp}}</div>
+  <div>English: {{datapoint.weather[0].main}} - {{datapoint.weather[0].description}}</div>
+</div>
