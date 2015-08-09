@@ -1,26 +1,28 @@
-<div class="weather-summary">
+<div class="weather-summary container">
   <h2>{{name}}</h2>
-  <div class="current-weather">
-    <div class="col-xs-4 current-icon-temp">
-      <div class="current-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
-      <div class="current-temp">{{current.celcius}} C</div>
+  <div class="current-weather row">
+    <div class="col-xs-3 current-icon-temp">
+      <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
     </div>
 
-    <div class="col-xs-8 current-description">
-      <div>{{current.main}}</div>
-      <div>{{current.description}}</div>
+    <div class="col-xs-3 current-icon-temp">
+      <div class="temperature">{{current.celcius}} C</div>
+    </div>
+
+
+    <div class="col-xs-6 current-description">
+      <div class="l1-summary">{{current.main}}</div>
+      <div class="l2-summary">{{current.description}}</div>
+    </div>
+  </div>
+
+  <div class="forecast-weather row">
+    <div class="daily-forecast col-xs-2" ng-repeat="datapoint in forecast | limitTo:5">
+      <div>{{dateString(datapoint.dt)}}</div>
+      <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{datapoint.weather[0].icon}}.png"/></div>
+      <div class="temperature">{{datapoint.temp.min}} - {{datapoint.temp.max}}</div>
+      <div class="l1-summary">{{datpoint.weather[0].main}}</div>
+      <div class="l2-summary">{{datpoint.weather[0].description}}</div>
     </div>
   </div>
 </div>
-
-<!-- <h2>Name: {{name}}</h2>
-<h2>Summary: {{summary}}</h2>
-<h2>Temp: {{celcius}}</h2>
-<img src="http://openweathermap.org/img/w/{{icon}}.png"></img>
- -->
-<!-- <div ng-repeat="datapoint in forecast">
-  <div>DT: {{datapoint.dt}}</div>
-  <div class="temperature">Temp: {{datapoint.main.temp}}</div>
-  <div>English: {{datapoint.weather[0].main}} - {{datapoint.weather[0].description}}</div>
-</div>
- -->

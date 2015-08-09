@@ -7,3 +7,9 @@ angular.module('weatherman').controller 'WeatherSummaryController', ($scope, cur
     icon: currentWeather?.weather[0].icon
 
   $scope.forecast = forecastWeather.list
+
+  $scope.dateString = (unixtime) ->
+    dt = moment unixtime * 1000
+    dayOfWeek = dt.format('ddd')
+    dayOfMonth = dt.format('DD')
+    "#{dayOfWeek} #{dayOfMonth}"

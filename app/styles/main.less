@@ -1,9 +1,32 @@
 .navbar {
   padding: 5px;
+  display: inline-block;
+}
+
+.is-resolving.spinner-loader {
+  font-size: 4px;
+  display: inline-block;
 }
 
 .weather-summary {
-  border: 1px solid black;
-  border-radius: 1em;
+  display: block;
 
+  .current-weather {
+    display: block;
+    float: left;
+    border: 1px solid black;
+    border-radius: 1em;
+  }
+
+  .forecast-weather {
+    display: block;
+    float: left;
+    clear: both;
+
+    .daily-forecast {
+      margin: 2px;
+      border: 1px solid black;
+      border-radius: 1em;
+    }
+  }
 }

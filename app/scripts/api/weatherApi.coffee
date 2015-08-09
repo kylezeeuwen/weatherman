@@ -3,7 +3,7 @@
 angular.module('weatherman').factory 'WeatherApi', ($resource, $q, CONF) ->
 
   current_endpoint =  'http://api.openweathermap.org/data/2.5/weather'
-  forecast_endpoint = ' http://api.openweathermap.org/data/2.5/forecast'
+  forecast_endpoint = ' http://api.openweathermap.org/data/2.5/forecast/daily'
 
   actions =
     current_by_cityname:

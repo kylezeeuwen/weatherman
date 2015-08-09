@@ -9,6 +9,7 @@
 
     <!-- this bootstrap is not managed by bower/wiredep -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -23,8 +24,10 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <nav-bar></nav-bar>
+    <div>
+      <nav-bar></nav-bar>
+      <is-resolving></is-resolving>
+    </div>
 
     <div class="container-fluid no-padding" ui-view></div>
 
@@ -60,6 +63,7 @@
 
     <!-- directives -->
     <script src="scripts/directives/navBar.js"></script>
+    <script src="scripts/directives/isResolving.js"></script>
     <!-- directives -->
 
     <!-- models -->
