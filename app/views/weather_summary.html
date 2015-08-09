@@ -1,10 +1,26 @@
-<h2>Name: {{name}}</h2>
+<div class="weather-summary">
+  <h2>{{name}}</h2>
+  <div class="current-weather">
+    <div class="col-xs-4 current-icon-temp">
+      <div class="current-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
+      <div class="current-temp">{{current.celcius}} C</div>
+    </div>
+
+    <div class="col-xs-8 current-description">
+      <div>{{current.main}}</div>
+      <div>{{current.description}}</div>
+    </div>
+  </div>
+</div>
+
+<!-- <h2>Name: {{name}}</h2>
 <h2>Summary: {{summary}}</h2>
 <h2>Temp: {{celcius}}</h2>
 <img src="http://openweathermap.org/img/w/{{icon}}.png"></img>
-
-<div ng-repeat="datapoint in forecast">
+ -->
+<!-- <div ng-repeat="datapoint in forecast">
   <div>DT: {{datapoint.dt}}</div>
   <div class="temperature">Temp: {{datapoint.main.temp}}</div>
   <div>English: {{datapoint.weather[0].main}} - {{datapoint.weather[0].description}}</div>
 </div>
+ -->

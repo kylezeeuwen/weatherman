@@ -32,6 +32,7 @@ h2. Issues/Todo:
 * navigator.geolocation should only be called within secure origin (https://). App will eventually break
 * Not handling unexpeced data. All code expects API to respond correctly
 * Round celcius to nearest degree
+* Incomplete bower/wiredep mgmt of bootstrap
 
 h2. Notes:
 
