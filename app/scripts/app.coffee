@@ -13,21 +13,19 @@ angular.module('weatherman', [
     url: '/current_location'
     templateUrl: 'views/weather_summary.html'
     resolve:
-      currentWeather: ['$stateParams', 'WeatherApi', 'CurrentLocation', ($stateParams, WeatherApi, CurrentLocation) ->
+      currentWeather: ['WeatherApi', 'CurrentLocation', (WeatherApi, CurrentLocation) ->
         CurrentLocation.get().then (coords) ->
           WeatherApi.current_by_coords(lat: coords.lat, lon: coords.lon).$promise
       ]
-    controller: 'CurrentCtrl'
+    controller: 'WeatherSummaryController'
 
   $stateProvider.state 'city_name',
     url: '/city/:cityName'
     templateUrl: 'views/weather_summary.html'
     resolve:
-      currentWeather: ['$stateParams', 'WeatherApi', 'CurrentLocation', ($stateParams, WeatherApi, CurrentLocation) ->
-        CurrentLocation.get().then (coords) ->
-          WeatherApi.current_by_cityname(q: $stateParams.cityName).$promise
+      currentWeather: ['WeatherApi', '$stateParams', (WeatherApi, $stateParams) ->
+        WeatherApi.current_by_cityname(q: $stateParams.cityName).$promise
       ]
-    controller: 'CityCtrl'
-
+    controller: 'WeatherSummaryController'
 
   return
