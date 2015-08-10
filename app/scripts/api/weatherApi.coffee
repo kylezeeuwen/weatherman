@@ -29,6 +29,6 @@ angular.module('weatherman').factory 'WeatherApi', ($resource, $q, CONF) ->
   defaultParams =
     APPID: CONF.openweather
 
-  defaultParams.APPID = '851ee50e37f65a6e18b72622f97ec5f2'
+  defaultParams.APPID = 'ADD APP ID HERE'
 
   $resource '', defaultParams, actions

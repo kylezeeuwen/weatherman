@@ -1,14 +1,13 @@
 <div class="weather-summary container">
   <h2>{{name}}</h2>
   <div class="current-weather row">
-    <div class="col-xs-3 current-icon-temp">
+    <div class="col-xs-3 current-icon">
       <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
     </div>
 
-    <div class="col-xs-3 current-icon-temp">
+    <div class="col-xs-3 current-temp">
       <div class="temperature">{{current.celcius}} C</div>
     </div>
-
 
     <div class="col-xs-6 current-description">
       <div class="l1-summary">{{current.main}}</div>
@@ -18,9 +17,10 @@
 
   <div class="forecast-weather row">
     <div class="daily-forecast col-xs-2" ng-repeat="datapoint in forecast | limitTo:5">
-      <div>{{dateString(datapoint.dt)}}</div>
+      <div class="day-of-week">{{dayOfWeek(datapoint.dt)}}</div>
+      <div class="day-of-month">{{dayOfMonth(datapoint.dt)}}</div>
       <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{datapoint.weather[0].icon}}.png"/></div>
-      <div class="temperature">{{datapoint.temp.min}} - {{datapoint.temp.max}}</div>
+      <div class="temperature">{{celcius(datapoint.temp.day)}}</div>
       <div class="l1-summary">{{datpoint.weather[0].main}}</div>
       <div class="l2-summary">{{datpoint.weather[0].description}}</div>
     </div>
