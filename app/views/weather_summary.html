@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-xs-3 current-temp">
-      <div class="temperature">{{current.celcius}} C</div>
+      <div class="temperature">{{current.kelvin | temperatureUnit}}</div>
     </div>
 
     <div class="col-xs-6 current-description">
@@ -20,7 +20,7 @@
       <div class="day-of-week">{{dayOfWeek(datapoint.dt)}}</div>
       <div class="day-of-month">{{dayOfMonth(datapoint.dt)}}</div>
       <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{datapoint.weather[0].icon}}.png"/></div>
-      <div class="temperature">{{celcius(datapoint.temp.day)}}</div>
+      <div class="temperature">{{datapoint.temp.day | temperatureUnit}}</div>
       <div class="l1-summary">{{datpoint.weather[0].main}}</div>
       <div class="l2-summary">{{datpoint.weather[0].description}}</div>
     </div>

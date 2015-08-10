@@ -2,6 +2,7 @@
 
 angular.module('weatherman', [
   'ngResource'
+  'LocalStorageModule'
   'ui.router'
 ]).config ($urlRouterProvider, $stateProvider) ->
 

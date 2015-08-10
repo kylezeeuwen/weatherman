@@ -7,14 +7,11 @@ angular.module('weatherman').controller 'WeatherSummaryController', ($scope, cur
     dt = moment unixtime * 1000
     dt.format('DD')
 
-  $scope.celcius = (kelvin) ->
-    Math.round(kelvin - 273.15)
-
   $scope.name = currentWeather.name
   $scope.current =
     main: currentWeather?.weather?[0].main
     description: currentWeather?.weather?[0].description
-    celcius: Math.round currentWeather?.main?.temp - 273.15
+    kelvin: currentWeather?.main?.temp
     icon: currentWeather?.weather[0].icon
 
   $scope.forecast = forecastWeather.list
