@@ -1,4 +1,4 @@
-angular.module('weatherman').controller 'WeatherSummaryController', ($scope, currentWeather, forecastWeather) ->
+angular.module('weatherman').controller 'WeatherSummaryController', ($scope, currentWeather, forecastWeather, UserPreferences) ->
   $scope.dayOfWeek = (unixtime) ->
     dt = moment unixtime * 1000
     dt.format('ddd')
@@ -7,7 +7,7 @@ angular.module('weatherman').controller 'WeatherSummaryController', ($scope, cur
     dt = moment unixtime * 1000
     dt.format('DD')
 
-  $scope.name = currentWeather.name
+  $scope.cityName = currentWeather.name
   $scope.current =
     main: currentWeather?.weather?[0].main
     description: currentWeather?.weather?[0].description
@@ -16,3 +16,11 @@ angular.module('weatherman').controller 'WeatherSummaryController', ($scope, cur
 
   $scope.forecast = forecastWeather.list
 
+  $scope.addFavorite = () ->
+    UserPreferences.addFavorite $scope.cityName
+
+  $scope.removeFavorite = () ->
+    UserPreferences.removeFavorite $scope.cityName
+
+  $scope.isFavorite = () ->
+    UserPreferences.isFavorite $scope.cityName

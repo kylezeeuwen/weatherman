@@ -1,6 +1,23 @@
 .navbar {
   padding: 5px;
   display: inline-block;
+
+  .user-preferences-dropdown {
+    display: inline-block;
+
+    .favorite-area-label {
+      display: inline;
+      padding-left: 0px;
+      padding-right: 3px;
+    }
+
+    .trash-can {
+      padding-left: 3px;
+      padding-right: 0px;
+      display: inline;
+      font-size: 10px;
+    }
+  }
 }
 
 .is-resolving.spinner-loader {
@@ -11,9 +28,23 @@
 .weather-summary {
   display: block;
 
+  .area-name {
+    font-size: xx-large;
+    display: inline-block;
+  }
+
+  .favorite-star {
+    font-size: 25px;
+    display: inline-block;
+  }
+
   .current-weather {
     display: block;
     float: left;
+
+    .current-description .l1-summary {
+      font-weight: bold;
+    }
   }
 
   .forecast-weather {

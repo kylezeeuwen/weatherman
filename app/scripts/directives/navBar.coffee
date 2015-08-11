@@ -1,4 +1,4 @@
-angular.module('weatherman').directive 'navBar', ->
+angular.module('weatherman').directive 'navBar', (UserPreferences, $state) ->
   restrict: 'E'
   replace: true
   templateUrl: 'scripts/directives/navBar.html'
@@ -9,3 +9,19 @@ angular.module('weatherman').directive 'navBar', ->
 
     $scope.changeCity = () ->
       $state.go 'city_name', cityName: $scope.fuzzyCity
+
+    $scope.getFavorites = () ->
+      UserPreferences.getFavorites()
+
+    $scope.removeFavorite = (favorite) ->
+      UserPreferences.removeFavorite favorite
+
+    $scope.setTempUnit = (tempUnit) ->
+      UserPreferences.setTemperatureUnit tempUnit
+      $state.reload()
+
+    $scope.getTempUnit = () ->
+      UserPreferences.getTemperatureUnit()
+
+    $scope.isActive = (tempUnit) ->
+      tempUnit == $scope.getTempUnit()

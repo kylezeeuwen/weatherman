@@ -1,5 +1,17 @@
 <div class="weather-summary container">
-  <h2>{{name}}</h2>
+
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="area-name">{{cityName}}</div>
+      <div class="favorite-star" ng-show="!isFavorite()" title="This area is not in your favorites. Click to add.">
+        <a href='' ng-click="addFavorite()"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></a>
+      </div>
+      <div class="favorite-star" ng-show="isFavorite()" title="This area is in your favorites. Click to remove.">
+        <a href='' ng-click="removeFavorite()"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div>
+
   <div class="current-weather row">
     <div class="col-xs-3 current-icon">
       <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
