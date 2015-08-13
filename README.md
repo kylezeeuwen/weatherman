@@ -2,6 +2,8 @@
 
 This repo contains source for a angular based weather website.
 
+You can build and host it yourself, or view it here (note you must allow the page to use your location or all bets are off ) : http://kylezeeuwen.github.io/weatherman/
+
 ## Install instructions (for OSX or Linux - Windows will be similar but harder):
 
 Prerequisites:
