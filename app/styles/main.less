@@ -1,9 +1,29 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .navbar {
   padding: 5px;
   display: inline-block;
+  margin: 0px;
+
+  .city-input {
+    border-radius: 6px;
+    border: solid 1px darkgrey;
+  }
+
+  .navbar-button {
+    padding-left: 2px;
+    color: #337ab7;
+  }
 
   .user-preferences-dropdown {
     display: inline-block;
+
+    button.navbar-button {
+      border: 0;
+      background: none;
+    }
 
     .favorite-area-label {
       display: inline;
@@ -29,13 +49,15 @@
   display: block;
 
   .area-name {
+    padding-left: 10px;
     font-size: xx-large;
     display: inline-block;
   }
 
   .favorite-star {
-    font-size: 25px;
+    font-size: 27px;
     display: inline-block;
+    padding-left: 8px;
   }
 
   .current-weather {

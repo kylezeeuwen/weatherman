@@ -8,6 +8,7 @@ angular.module('weatherman').directive 'navBar', (UserPreferences, $state) ->
     $scope.fuzzyCity = null
 
     $scope.changeCity = () ->
+      return unless $scope.fuzzyCity
       $state.go 'city_name', cityName: $scope.fuzzyCity
 
     $scope.getFavorites = () ->

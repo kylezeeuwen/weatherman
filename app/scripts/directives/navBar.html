@@ -3,15 +3,16 @@
   <!-- I dont want everything inside this form -->
   <form ng-submit="changeCity()" novalidate>
     <input
+      class="city-input"
       type="text"
       name="city"
       ng-model="fuzzyCity"
       placeholder="Enter a City">
     </input>
-    <a href='' ng-click="changeCity()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-    <a ui-sref="current_location"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span></a>
+    <a class="navbar-button" href='' ng-click="changeCity()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+    <a class="navbar-button" ui-sref="current_location"><span class="current-location-button glyphicon glyphicon-screenshot" aria-hidden="true"></span></a>
     <div class="user-preferences-dropdown dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="userPreferences" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="navbar-button dropdown-toggle" type="button" id="userPreferences" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="userPreferences">

@@ -25,10 +25,7 @@ angular.module('weatherman').factory 'WeatherApi', ($resource, $q, CONF) ->
       url: forecast_endpoint
       method:  'GET'
 
-  #XXX: CONF NOT working ?
   defaultParams =
-    APPID: CONF.openweather
-
-  defaultParams.APPID = 'ADD APP ID HERE'
+    APPID: CONF.openweatherKey
 
   $resource '', defaultParams, actions
