@@ -1,0 +1,70 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.navbar {
+  padding: 5px;
+  display: inline-block;
+  margin: 0px;
+}
+.navbar .city-input {
+  border-radius: 6px;
+  border: solid 1px darkgrey;
+}
+.navbar .navbar-button {
+  padding-left: 2px;
+  color: #337ab7;
+}
+.navbar .user-preferences-dropdown {
+  display: inline-block;
+}
+.navbar .user-preferences-dropdown button.navbar-button {
+  border: 0;
+  background: none;
+}
+.navbar .user-preferences-dropdown .dropdown-header {
+  padding: 3px 5px;
+}
+.navbar .user-preferences-dropdown .temperature-control {
+  padding-left: 10px;
+}
+.navbar .user-preferences-dropdown .favorite-area-label {
+  display: inline;
+  padding-left: 0px;
+  padding-right: 3px;
+}
+.navbar .user-preferences-dropdown .trash-can {
+  padding-left: 10px;
+  padding-right: 0px;
+  display: inline;
+  font-size: 10px;
+}
+.is-resolving.spinner-loader {
+  font-size: 4px;
+  display: inline-block;
+}
+.weather-summary {
+  display: block;
+}
+.weather-summary .area-name {
+  padding-left: 10px;
+  font-size: xx-large;
+  display: inline-block;
+}
+.weather-summary .favorite-star {
+  font-size: 27px;
+  display: inline-block;
+  padding-left: 8px;
+}
+.weather-summary .current-weather {
+  display: block;
+  float: left;
+}
+.weather-summary .current-weather .current-description .l1-summary {
+  font-weight: bold;
+}
+.weather-summary .forecast-weather {
+  text-align: center;
+  display: block;
+  float: left;
+  clear: both;
+}

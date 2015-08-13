@@ -1,0 +1,40 @@
+<div class="weather-summary container">
+
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="area-name">{{cityName}}</div>
+      <div class="favorite-star" ng-show="!isFavorite()" title="This area is not in your favorites. Click to add.">
+        <a href='' ng-click="addFavorite()"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></a>
+      </div>
+      <div class="favorite-star" ng-show="isFavorite()" title="This area is in your favorites. Click to remove.">
+        <a href='' ng-click="removeFavorite()"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="current-weather row">
+    <div class="col-xs-3 current-icon">
+      <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{current.icon}}.png"/></div>
+    </div>
+
+    <div class="col-xs-3 current-temp">
+      <div class="temperature">{{current.kelvin | temperatureUnit}}</div>
+    </div>
+
+    <div class="col-xs-6 current-description">
+      <div class="l1-summary">{{current.main}}</div>
+      <div class="l2-summary">{{current.description}}</div>
+    </div>
+  </div>
+
+  <div class="forecast-weather row">
+    <div class="daily-forecast col-xs-2" ng-repeat="datapoint in forecast | limitTo:5">
+      <div class="day-of-week">{{dayOfWeek(datapoint.dt)}}</div>
+      <div class="day-of-month">{{dayOfMonth(datapoint.dt)}}</div>
+      <div class="weather-icon"><img src="http://openweathermap.org/img/w/{{datapoint.weather[0].icon}}.png"/></div>
+      <div class="temperature">{{datapoint.temp.day | temperatureUnit}}</div>
+      <div class="l1-summary">{{datpoint.weather[0].main}}</div>
+      <div class="l2-summary">{{datpoint.weather[0].description}}</div>
+    </div>
+  </div>
+</div>
