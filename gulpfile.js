@@ -17,7 +17,7 @@ gulp.task('default', function () {
   gulp.start('build');
 });
 
-gulp.task('build', ['wiredep', 'compile-coffee', 'compile-less', 'fonts', 'copy'], function () {
+gulp.task('build', ['wiredep', 'compile-coffee', 'compile-less', 'copy'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -71,46 +71,8 @@ gulp.task('copy', function () {
   }).pipe(gulp.dest('dist/data'));
 });
 
-gulp.task('fonts', function () {
-  return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
-    .pipe($.flatten())
-    .pipe(gulp.dest('dist/fonts'));
-});
-
-gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest('dist/images'));
-});
-
-gulp.task('karma', function() {
-  var karma = require('gulp-karma');
-  var testFiles = 'compiled/test/**/*Spec.js';
-
-  return gulp.src('./fakefile/use-files-array-in/test/spec/karma.conf.js')
-    .pipe(karma({
-      configFile: 'test/spec/karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function(err) {
-      throw err;
-    });
-});
-
 gulp.task('serve', ['connect', 'watch'], function () {
   require('opn')('http://localhost:9000');
-});
-
-gulp.task('test', function(cb) {
-  runSequence(['test-clean', 'clean'], ['compile-coffee', 'wiredep', 'copy'], 'karma', cb);
-});
-
-gulp.task('test-clean', function(cb) {
-  fs.remove('compiled', cb);
 });
 
 gulp.task('watch', ['connect'], function () {
